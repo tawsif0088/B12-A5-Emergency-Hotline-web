@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
         integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
 <body class="bg-[#f5fff6] ">
@@ -22,15 +23,15 @@
         </div>
         <div class="flex items-center mr-[55px]">
             <div class="bg-[#41ff6b1a] w-[123px] h-[52px] flex items-center justify-center gap-2 rounded-[50px]  mr-4">
-                <h3 class="font-bold ">0</h3>
+                <h3 class="font-bold" id="heartCount">0</h3>
                 <img src="./assets/heart.png" class="w-[30px] h-[30px]" alt="">
             </div>
             <div class="bg-[#41ff6b1a] w-[123px] h-[52px] flex items-center justify-center gap-2 rounded-[50px] mr-4">
-                <h3 class="font-bold ">100</h3>
+                <h3 class="font-bold " id="coinCount">100</h3>
                 <img src="./assets/coin.png" class="w-[30px] h-[30px]" alt="">
             </div>
             <div class="bg-[#00a63e] w-[123px] h-[52px] flex items-center justify-center gap-2 rounded-[50px] mr-4">
-                <h3 class="font-bold text-white "><span>0</span> Copy</h3>
+                <h3 class="font-bold text-white "><span id="copyCount">0</span> Copy</h3>
 
             </div>
         </div>
@@ -45,17 +46,17 @@
     </div>
 
 
-    <div class=" p-6 max-w-full grid grid-cols-12 gap-6 ">
+    <div class=" grid grid-cols-8 gap-6 p-8 ">
 
         <!-- Services cards section -->
-        <div class=" w-full col-span-10 grid grid-cols-3 gap-3 p-5">
+        <div class=" w-full col-span-6 grid grid-cols-3 gap-3 p-5">
             <div class="max-w-sm bg-white rounded-xl shadow-md p-5 space-y-4">
                 <!-- Top Section -->
                 <div class="flex justify-between items-start">
                     <div class="w-[60px] h-[60px] bg-[#FFE3E2] rounded-[16px] flex items-center justify-center">
                         <img src="./assets/emergency.png" class="w-[32px] h-[32px]" alt="Emergency Icon">
                     </div>
-                    <button class="text-gray-400 hover:text-red-500">
+                    <button class="heart-btn text-gray-400 hover:text-red-500 ">
                         <i class="fa-regular fa-heart"></i>
                     </button>
                 </div>
@@ -72,10 +73,12 @@
                 </div>
                 <!-- Buttons -->
                 <div class="flex space-x-3">
-                    <button class="flex-1 border border-gray-300 text-gray-700 rounded-lg py-2 hover:bg-gray-100 ">
+                    <button
+                        class="copy-btn flex-1 border border-gray-300 text-gray-700 rounded-lg py-2 hover:bg-gray-100 ">
                         <i class="fa-regular fa-copy "></i>Copy</button>
                     <button
-                        class="flex-1 bg-green-600 text-white rounded-lg py-2 hover:bg-green-700 flex items-center justify-center space-x-2">
+                        class="call-btn flex-1 bg-green-600 text-white rounded-lg py-2 hover:bg-green-700 flex items-center justify-center space-x-2"
+                        data-service="National Emergency Number" data-number="999">
                         <i class="fa-solid fa-phone"></i>
                         <span>Call</span>
                     </button>
@@ -87,7 +90,7 @@
                     <div class="w-[60px] h-[60px] bg-[#FFE3E2] rounded-[16px] flex items-center justify-center">
                         <img src="./assets/police.png" class="w-[32px] h-[32px]" alt="Emergency Icon">
                     </div>
-                    <button class="text-gray-400 hover:text-red-500">
+                    <button class="heart-btn text-gray-400 hover:text-red-500">
                         <i class="fa-regular fa-heart"></i>
                     </button>
                 </div>
@@ -104,10 +107,12 @@
                 </div>
                 <!-- Buttons -->
                 <div class="flex space-x-3">
-                    <button class="flex-1 border border-gray-300 text-gray-700 rounded-lg py-2 hover:bg-gray-100 ">
+                    <button
+                        class="copy-btn flex-1 border border-gray-300 text-gray-700 rounded-lg py-2 hover:bg-gray-100 ">
                         <i class="fa-regular fa-copy "></i>Copy</button>
                     <button
-                        class="flex-1 bg-green-600 text-white rounded-lg py-2 hover:bg-green-700 flex items-center justify-center space-x-2">
+                        class="flex-1 bg-green-600 text-white rounded-lg py-2 hover:bg-green-700 flex items-center justify-center space-x-2 call-btn"
+                        data-service="Police Helpline Number" data-number="999">
                         <i class="fa-solid fa-phone"></i>
                         <span>Call</span>
                     </button>
@@ -119,7 +124,7 @@
                     <div class="w-[60px] h-[60px] bg-[#FFE3E2] rounded-[16px] flex items-center justify-center">
                         <img src="./assets/fire-service.png" class="w-[32px] h-[32px]" alt="Emergency Icon">
                     </div>
-                    <button class="text-gray-400 hover:text-red-500">
+                    <button class="heart-btn text-gray-400 hover:text-red-500">
                         <i class="fa-regular fa-heart"></i>
                     </button>
                 </div>
@@ -136,10 +141,12 @@
                 </div>
                 <!-- Buttons -->
                 <div class="flex space-x-3">
-                    <button class="flex-1 border border-gray-300 text-gray-700 rounded-lg py-2 hover:bg-gray-100 ">
+                    <button
+                        class="copy-btn flex-1 border border-gray-300 text-gray-700 rounded-lg py-2 hover:bg-gray-100 ">
                         <i class="fa-regular fa-copy "></i>Copy</button>
                     <button
-                        class="flex-1 bg-green-600 text-white rounded-lg py-2 hover:bg-green-700 flex items-center justify-center space-x-2">
+                        class="flex-1 bg-green-600 text-white rounded-lg py-2 hover:bg-green-700 flex items-center justify-center space-x-2 call-btn"
+                        data-service="Fire Service Number" data-number="999">
                         <i class="fa-solid fa-phone"></i>
                         <span>Call</span>
                     </button>
@@ -151,7 +158,7 @@
                     <div class="w-[60px] h-[60px] bg-[#FFE3E2] rounded-[16px] flex items-center justify-center">
                         <img src="./assets/ambulance.png" class="w-[32px] h-[32px]" alt="Emergency Icon">
                     </div>
-                    <button class="text-gray-400 hover:text-red-500">
+                    <button class="heart-btn text-gray-400 hover:text-red-500">
                         <i class="fa-regular fa-heart"></i>
                     </button>
                 </div>
@@ -168,10 +175,12 @@
                 </div>
                 <!-- Buttons -->
                 <div class="flex space-x-3">
-                    <button class="flex-1 border border-gray-300 text-gray-700 rounded-lg py-2 hover:bg-gray-100 ">
+                    <button
+                        class="copy-btn flex-1 border border-gray-300 text-gray-700 rounded-lg py-2 hover:bg-gray-100 ">
                         <i class="fa-regular fa-copy "></i>Copy</button>
                     <button
-                        class="flex-1 bg-green-600 text-white rounded-lg py-2 hover:bg-green-700 flex items-center justify-center space-x-2">
+                        class="flex-1 bg-green-600 text-white rounded-lg py-2 hover:bg-green-700 flex items-center justify-center space-x-2 call-btn"
+                        data-service="Ambulance Service" data-number="1994-999999">
                         <i class="fa-solid fa-phone"></i>
                         <span>Call</span>
                     </button>
@@ -183,7 +192,7 @@
                     <div class="w-[60px] h-[60px] bg-[#FFE3E2] rounded-[16px] flex items-center justify-center">
                         <img src="./assets/emergency.png" class="w-[32px] h-[32px]" alt="Emergency Icon">
                     </div>
-                    <button class="text-gray-400 hover:text-red-500">
+                    <button class="heart-btn text-gray-400 hover:text-red-500">
                         <i class="fa-regular fa-heart"></i>
                     </button>
                 </div>
@@ -200,10 +209,12 @@
                 </div>
                 <!-- Buttons -->
                 <div class="flex space-x-3">
-                    <button class="flex-1 border border-gray-300 text-gray-700 rounded-lg py-2 hover:bg-gray-100 ">
+                    <button
+                        class="copy-btn flex-1 border border-gray-300 text-gray-700 rounded-lg py-2 hover:bg-gray-100 ">
                         <i class="fa-regular fa-copy "></i>Copy</button>
                     <button
-                        class="flex-1 bg-green-600 text-white rounded-lg py-2 hover:bg-green-700 flex items-center justify-center space-x-2">
+                        class="flex-1 bg-green-600 text-white rounded-lg py-2 hover:bg-green-700 flex items-center justify-center space-x-2 call-btn"
+                        data-service="Women & Child Helpline" data-number="109">
                         <i class="fa-solid fa-phone"></i>
                         <span>Call</span>
                     </button>
@@ -215,7 +226,7 @@
                     <div class="w-[60px] h-[60px] bg-[#FFE3E2] rounded-[16px] flex items-center justify-center">
                         <img src="./assets/emergency.png" class="w-[32px] h-[32px]" alt="Emergency Icon">
                     </div>
-                    <button class="text-gray-400 hover:text-red-500">
+                    <button class="heart-btn text-gray-400 hover:text-red-500">
                         <i class="fa-regular fa-heart"></i>
                     </button>
                 </div>
@@ -232,10 +243,12 @@
                 </div>
                 <!-- Buttons -->
                 <div class="flex space-x-3">
-                    <button class="flex-1 border border-gray-300 text-gray-700 rounded-lg py-2 hover:bg-gray-100 ">
+                    <button
+                        class="copy-btn flex-1 border border-gray-300 text-gray-700 rounded-lg py-2 hover:bg-gray-100 ">
                         <i class="fa-regular fa-copy "></i>Copy</button>
                     <button
-                        class="flex-1 bg-green-600 text-white rounded-lg py-2 hover:bg-green-700 flex items-center justify-center space-x-2">
+                        class="flex-1 bg-green-600 text-white rounded-lg py-2 hover:bg-green-700 flex items-center justify-center space-x-2 call-btn"
+                        data-service="Anti-Corruption Helpline" data-number="106">
                         <i class="fa-solid fa-phone"></i>
                         <span>Call</span>
                     </button>
@@ -247,7 +260,7 @@
                     <div class="w-[60px] h-[60px] bg-[#FFE3E2] rounded-[16px] flex items-center justify-center">
                         <img src="./assets/emergency.png" class="w-[32px] h-[32px]" alt="Emergency Icon">
                     </div>
-                    <button class="text-gray-400 hover:text-red-500">
+                    <button class="heart-btn text-gray-400 hover:text-red-500">
                         <i class="fa-regular fa-heart"></i>
                     </button>
                 </div>
@@ -264,10 +277,12 @@
                 </div>
                 <!-- Buttons -->
                 <div class="flex space-x-3">
-                    <button class="flex-1 border border-gray-300 text-gray-700 rounded-lg py-2 hover:bg-gray-100 ">
+                    <button
+                        class="copy-btn flex-1 border border-gray-300 text-gray-700 rounded-lg py-2 hover:bg-gray-100 ">
                         <i class="fa-regular fa-copy "></i>Copy</button>
                     <button
-                        class="flex-1 bg-green-600 text-white rounded-lg py-2 hover:bg-green-700 flex items-center justify-center space-x-2">
+                        class="flex-1 bg-green-600 text-white rounded-lg py-2 hover:bg-green-700 flex items-center justify-center space-x-2 call-btn"
+                        data-service="Electricity Helpline" data-number="16216">
                         <i class="fa-solid fa-phone"></i>
                         <span>Call</span>
                     </button>
@@ -279,7 +294,7 @@
                     <div class="w-[60px] h-[60px] bg-[#FFE3E2] rounded-[16px] flex items-center justify-center">
                         <img src="./assets/emergency.png" class="w-[32px] h-[32px]" alt="Emergency Icon">
                     </div>
-                    <button class="text-gray-400 hover:text-red-500">
+                    <button class="heart-btn text-gray-400 hover:text-red-500">
                         <i class="fa-regular fa-heart"></i>
                     </button>
                 </div>
@@ -296,10 +311,12 @@
                 </div>
                 <!-- Buttons -->
                 <div class="flex space-x-3">
-                    <button class="flex-1 border border-gray-300 text-gray-700 rounded-lg py-2 hover:bg-gray-100 ">
+                    <button
+                        class="copy-btn flex-1 border border-gray-300 text-gray-700 rounded-lg py-2 hover:bg-gray-100 ">
                         <i class="fa-regular fa-copy "></i>Copy</button>
                     <button
-                        class="flex-1 bg-green-600 text-white rounded-lg py-2 hover:bg-green-700 flex items-center justify-center space-x-2">
+                        class="flex-1 bg-green-600 text-white rounded-lg py-2 hover:bg-green-700 flex items-center justify-center space-x-2 call-btn"
+                        data-service="Brac Helpline" data-number="16445">
                         <i class="fa-solid fa-phone"></i>
                         <span>Call</span>
                     </button>
@@ -311,7 +328,7 @@
                     <div class="w-[60px] h-[60px] bg-[#FFE3E2] rounded-[16px] flex items-center justify-center">
                         <img src="./assets/emergency.png" class="w-[32px] h-[32px]" alt="Emergency Icon">
                     </div>
-                    <button class="text-gray-400 hover:text-red-500">
+                    <button class="heart-btn text-gray-400 hover:text-red-500">
                         <i class="fa-regular fa-heart"></i>
                     </button>
                 </div>
@@ -328,10 +345,12 @@
                 </div>
                 <!-- Buttons -->
                 <div class="flex space-x-3">
-                    <button class="flex-1 border border-gray-300 text-gray-700 rounded-lg py-2 hover:bg-gray-100 ">
+                    <button
+                        class="copy-btn flex-1 border border-gray-300 text-gray-700 rounded-lg py-2 hover:bg-gray-100 ">
                         <i class="fa-regular fa-copy "></i>Copy</button>
                     <button
-                        class="flex-1 bg-green-600 text-white rounded-lg py-2 hover:bg-green-700 flex items-center justify-center space-x-2">
+                        class="flex-1 bg-green-600 text-white rounded-lg py-2 hover:bg-green-700 flex items-center justify-center space-x-2 call-btn"
+                        data-service="Bangladesh Railway Helpline" data-number="163">
                         <i class="fa-solid fa-phone"></i>
                         <span>Call</span>
                     </button>
@@ -352,34 +371,35 @@
                     </svg>
                     <h2 class="font-bold text-lg">Call History</h2>
                 </div>
-                <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-1 rounded-full text-sm">Clear</button>
+                <button id="clearHistoryBtn"
+                    class="bg-green-600 hover:bg-green-700 text-white px-4 py-1 rounded-full text-sm">Clear</button>
             </div>
 
             <!-- Scrollable List -->
-            <div class="flex-1 overflow-y-auto space-y-3 pr-2">
+            <div id="callHistoryList" class="flex-1 overflow-y-auto space-y-3 pr-2">
                 <!-- Single Call Item -->
                 <div class="flex justify-between items-center bg-gray-50 p-3 rounded-lg">
                     <div>
-                        <p class="font-medium">Fire Service Number</p>
-                        <p class="text-sm text-gray-500">999</p>
+                        <p class="font-medium"></p>
+                        <p class="text-sm text-gray-500"></p>
                     </div>
-                    <span class="text-sm text-gray-600">11:36:58 AM</span>
+                    <span class="text-sm text-gray-600"></span>
                 </div>
 
                 <div class="flex justify-between items-center bg-gray-50 p-3 rounded-lg">
                     <div>
-                        <p class="font-medium">National Emergency</p>
-                        <p class="text-sm text-gray-500">999</p>
+                        <p class="font-medium"></p>
+                        <p class="text-sm text-gray-500"></p>
                     </div>
-                    <span class="text-sm text-gray-600">11:35:10 AM</span>
+                    <span class="text-sm text-gray-600"></span>
                 </div>
 
                 <div class="flex justify-between items-center bg-gray-50 p-3 rounded-lg">
                     <div>
-                        <p class="font-medium">Police Helpline</p>
-                        <p class="text-sm text-gray-500">999</p>
+                        <p class="font-medium"></p>
+                        <p class="text-sm text-gray-500"></p>
                     </div>
-                    <span class="text-sm text-gray-600">11:34:00 AM</span>
+                    <span class="text-sm text-gray-600"></span>
                 </div>
             </div>
         </div>
