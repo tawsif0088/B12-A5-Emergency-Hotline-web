@@ -23,18 +23,15 @@ document.querySelectorAll(".call-btn").forEach(btn => {
         const service = btn.getAttribute("data-service");
         const number = btn.getAttribute("data-number");
 
-
         if (coins < 20) {
             alert("Not enough coins! You need at least 20 coins to make a call.");
             return;
         }
 
-
         coins -= 20;
         coinCount.textContent = coins;
 
-
-        alert(`Calling ${service} at ${number}`);
+        alert(`Calling ${service} at ${number}...`);
 
         const now = new Date();
         const timeString = now.toLocaleTimeString();
